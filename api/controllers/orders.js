@@ -19,7 +19,9 @@ exports.get_all_orders = (req, res, next) => {
             quantity: order.quantity,
             request: {
               type: "GET",
-              url: "http://localhost:5000/orders/" + order._id,
+              url:
+                "https://e-commerce-restfull-api.herokuapp.com/orders/" +
+                order._id,
             },
           };
         }),
@@ -49,7 +51,9 @@ exports.create_order = (req, res, next) => {
             quantity: order.quantity,
             request: {
               type: "POS",
-              url: "http://localhost:5000/orders/" + order._id,
+              url:
+                "https://e-commerce-restfull-api.herokuapp.com/orders/" +
+                order._id,
             },
           });
         })
@@ -70,7 +74,7 @@ exports.get_order = (req, res, next) => {
         order: order,
         request: {
           type: "GET",
-          url: "http://localhost:5000/orders",
+          url: "https://e-commerce-restfull-api.herokuapp.com/orders",
         },
       });
     })
@@ -85,7 +89,7 @@ exports.delete_order = (req, res, next) => {
         message: "Order was deleted",
         request: {
           type: "POST",
-          url: "http://localhost:5000/orders",
+          url: "https://e-commerce-restfull-api.herokuapp.com/orders",
         },
       });
     })

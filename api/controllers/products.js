@@ -15,7 +15,9 @@ exports.get_all_products = (req, res, next) => {
             productImage: product.productImage,
             request: {
               type: "GET",
-              url: "http://localhost:5000/products/" + product._id,
+              url:
+                "https://e-commerce-restfull-api.herokuapp.com/products/" +
+                product._id,
             },
           };
         }),
@@ -39,7 +41,9 @@ exports.get_product = (req, res, next) => {
           productImage: product.productImage,
           request: {
             type: "GET",
-            url: "http://localhost:5000/products/" + product._id,
+            url:
+              "https://e-commerce-restfull-api.herokuapp.com/products/" +
+              product._id,
           },
         });
       } else {
@@ -72,7 +76,9 @@ exports.create_product = (req, res, next) => {
           productImage: product.productImage,
           request: {
             type: "POST",
-            url: "http://localhost:5000/products/" + product._id,
+            url:
+              "https://e-commerce-restfull-api.herokuapp.com/products/" +
+              product._id,
           },
         },
       });
@@ -92,7 +98,7 @@ exports.update_product = (req, res, next) => {
         message: "Product updated successfully",
         request: {
           type: "PATCH",
-          url: "http://localhost:5000/products/" + id,
+          url: "https://e-commerce-restfull-api.herokuapp.com/products/" + id,
         },
       });
     })
