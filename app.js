@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 // import api routes
 const productRoute = require("./api/routes/products");
@@ -18,10 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // database connection
-const connectionString = `mongodb+srv://e-shop:e-shop@e-shop-cluster.ectchra.mongodb.net/?retryWrites=true&w=majority`;
 mongoose
-  .connect(connectionString, (e) =>
-    e ? console.log(e) : console.log("DB connection successfull")
+  .connect(process.env.CONNECTION_STRING, (e) =>
+    e ? console.log(e) : console.log("DB connection successfully")
   )
   .catch((err) => console.log(err));
 

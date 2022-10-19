@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const User = require("../models/user");
 
@@ -47,7 +48,7 @@ exports.login = (req, res) => {
           } else if (result) {
             const token = jwt.sign(
               { email: user[0].email, _id: user[0]._id },
-              "secretKey",
+              process.env.SECRET_KEY,
               {
                 expiresIn: "1h",
               }
